@@ -12,6 +12,7 @@ export interface Projeto {
   github: string;
   status: string;
   features?: string[];
+  imagens?: string[];
 }
 
 export interface Perfil {

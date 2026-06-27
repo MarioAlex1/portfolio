@@ -1,4 +1,4 @@
-import { ExternalLink, Layers } from "lucide-react";
+import { Layers } from "lucide-react";
 import { Projeto } from "@/types/portfolio";
 
 interface ProjectCardProps {

@@ -1,7 +1,8 @@
 import { Mail, MapPin, GraduationCap, ShieldAlert } from "lucide-react";
+import { Perfil } from "@/types/portfolio";
 
 interface HeroProps {
-  perfil: any;
+  perfil: Perfil;
 }
 
 export function Hero({ perfil }: HeroProps) {

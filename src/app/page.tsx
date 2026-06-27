@@ -7,11 +7,11 @@ import { Hero } from "@/components/Hero";
 import { Skills } from "@/components/Skills";
 import { ProjectCard } from "@/components/ProjectCard";
 import { ProjectModal } from "@/components/ProjectModal";
-import { Footer } from "@/components/Footer";
-import { GitBranch, Target, CheckCircle2 } from "lucide-react";
+import { GitBranch, Target, CheckCircle2, Wrench } from "lucide-react";
+import { Projeto } from "@/types/portfolio";
 
 export default function Home() {
-  const [projetoSelecionado, setProjetoSelecionado] = useState<any | null>(null);
+  const [projetoSelecionado, setProjetoSelecionado] = useState<Projeto | null>(null);
 
   return (
     <div className="min-h-screen bg-zinc-950 text-zinc-50 font-sans antialiased selection:bg-emerald-500 selection:text-zinc-950">
@@ -62,7 +62,9 @@ export default function Home() {
               <span className="text-emerald-400 font-mono">02.</span> Projetos & Arquiteturas
             </h3>
             <span className="text-[10px] font-mono text-zinc-500 flex items-center gap-1.5">
-              <span className="w-2 h-2 rounded-full bg-amber-500/70 animate-pulse" /> 🛠️ Active development
+              <span className="w-2 h-2 rounded-full bg-amber-500/70 animate-pulse" />
+              <Wrench className="w-3.5 h-3.5 text-amber-500/80" />
+              Active development
             </span>
           </div>
 
@@ -90,6 +92,7 @@ export default function Home() {
 
       {/* MODAL */}
       <ProjectModal 
+        key={projetoSelecionado?.titulo || "modal"}
         projeto={projetoSelecionado} 
         onClose={() => setProjetoSelecionado(null)} 
       />

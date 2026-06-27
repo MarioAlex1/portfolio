@@ -1,5 +1,7 @@
+import { Perfil } from "@/types/portfolio";
+
 interface SkillsProps {
-  perfil: any; // Recebe o objeto completo com as categorias atualizadas
+  perfil: Perfil; // Recebe o objeto completo com as categorias atualizadas
 }
 
 export function Skills({ perfil }: SkillsProps) {
@@ -13,10 +15,10 @@ export function Skills({ perfil }: SkillsProps) {
         </h3>
         
         <div className="grid grid-cols-1 gap-6">
-          {perfil.categoriasSkills.map((cat: any, index: number) => (
+          {perfil.categoriasSkills.map((cat, index: number) => (
             <div key={index} className="p-5 bg-zinc-900/20 border border-zinc-900 rounded-xl space-y-3">
               <h4 className="text-xs font-mono font-bold text-emerald-400 uppercase tracking-widest">
-                // {cat.titulo}
+                {"// "}{cat.titulo}
               </h4>
               <div className="flex flex-wrap gap-2">
                 {cat.competencias.map((comp: string, i: number) => (
