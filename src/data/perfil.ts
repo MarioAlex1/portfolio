@@ -119,7 +119,7 @@ export const MEU_PERFIL_PT: Perfil = {
       descricao: "API de alta escalabilidade e aplicativo mobile para gestão de treinos e conexão direta entre personal trainer e aluno. Desenvolvido como Projeto Integrador acadêmico projetado para atender a um cliente real.",
       tags: ["Express", "TypeScript", "TypeORM", "PostgreSQL", "Socket.io", "Vitest"],
       status: "Em Progresso",
-      github: "https://github.com/MarioAlex1/fitSync",
+      github: "Privado",
       features: [
         "Projeto acadêmico integrador desenvolvido sob medida para um cliente real",
         "Arquitetura REST com Express (Node.js) e validação rigorosa com Zod",
@@ -137,7 +137,7 @@ export const MEU_PERFIL_PT: Perfil = {
       descricao: "API de alta performance desenvolvida para automação de agendamentos, reservas e fluxos de trabalho operacionais para barbearias. Atuação exclusiva no desenvolvimento do backend em parceria com outro desenvolvedor backend, sendo as interfaces visuais (web/mobile) integradas e criadas por outros desenvolvedores da equipe.",
       tags: ["Django", "DRF", "PostgreSQL", "JWT", "Pytest", "CI/CD"],
       status: "Em Progresso",
-      github: "https://github.com/MarioAlex1",
+      github: "Privado",
       features: [
         "Atuação exclusiva no desenvolvimento da API backend em parceria com outro desenvolvedor backend",
         "Integração de serviços com interfaces (web e mobile) desenvolvidas por outros membros da equipe",
@@ -302,7 +302,7 @@ export const MEU_PERFIL_EN: Perfil = {
       descricao: "High-scalability API and mobile app for training management and direct trainer-student connection. Developed as an academic Capstone Project designed for a real client.",
       tags: ["Express", "TypeScript", "TypeORM", "PostgreSQL", "Socket.io", "Vitest"],
       status: "In Progress",
-      github: "https://github.com/MarioAlex1/fitSync",
+      github: "Privado",
       features: [
         "Academic Capstone Project custom-built for a real client",
         "REST Architecture with Express (Node.js) and strict validation with Zod",
@@ -320,7 +320,7 @@ export const MEU_PERFIL_EN: Perfil = {
       descricao: "High-performance API developed for barbershop booking automation, reservations, and operational workflows. Exclusive participation in the backend development in partnership with another backend developer, with visual interfaces (web/mobile) integrated and built by other team developers.",
       tags: ["Django", "DRF", "PostgreSQL", "JWT", "Pytest", "CI/CD"],
       status: "In Progress",
-      github: "https://github.com/MarioAlex1",
+      github: "Privado",
       features: [
         "Exclusive role in the backend API development partnering with another backend developer",
         "Service integration with web and mobile interfaces developed by other team members",

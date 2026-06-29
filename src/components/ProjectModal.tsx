@@ -25,7 +25,7 @@ const renderDescricaoComLinks = (texto: string, lang: "pt" | "en") => {
           href={urlClean} 
           target="_blank" 
           rel="noopener noreferrer" 
-          className="text-emerald-650 dark:text-emerald-400 hover:text-emerald-500 dark:hover:text-emerald-300 underline break-all transition-colors"
+          className="text-emerald-655 dark:text-emerald-400 hover:text-emerald-500 dark:hover:text-emerald-300 underline break-all transition-colors"
         >
           {urlClean}
         </a>
@@ -37,11 +37,38 @@ const renderDescricaoComLinks = (texto: string, lang: "pt" | "en") => {
 
 export function ProjectModal({ projeto, onClose, lang }: ProjectModalProps) {
   const [imagemAtiva, setImagemAtiva] = useState(0);
+  const [touchStart, setTouchStart] = useState<number | null>(null);
+  const [touchEnd, setTouchEnd] = useState<number | null>(null);
+
+  const minSwipeDistance = 50;
 
   if (!projeto) return null;
 
+  const handleTouchStart = (e: React.TouchEvent) => {
+    setTouchEnd(null);
+    setTouchStart(e.targetTouches[0].clientX);
+  };
+
+  const handleTouchMove = (e: React.TouchEvent) => {
+    setTouchEnd(e.targetTouches[0].clientX);
+  };
+
+  const handleTouchEnd = () => {
+    if (!touchStart || !touchEnd) return;
+    const distance = touchStart - touchEnd;
+    const isLeftSwipe = distance > minSwipeDistance;
+    const isRightSwipe = distance < -minSwipeDistance;
+    
+    if (isLeftSwipe && projeto.imagens) {
+      setImagemAtiva((prev) => (prev === projeto.imagens!.length - 1 ? 0 : prev + 1));
+    }
+    if (isRightSwipe && projeto.imagens) {
+      setImagemAtiva((prev) => (prev === 0 ? projeto.imagens!.length - 1 : prev - 1));
+    }
+  };
+
   return (
-    <div className="fixed inset-0 z-50 flex items-center justify-center p-4 sm:p-6 backdrop-blur-sm bg-zinc-950/40 dark:bg-zinc-950/80 animate-fade-in">
+    <div className="fixed inset-0 z-50 flex items-center justify-center p-4 sm:p-6 backdrop-blur-sm bg-zinc-955/40 dark:bg-zinc-950/80 animate-fade-in">
       {/* Caixa do Modal */}
       <div className="bg-white dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800 w-full max-w-2xl rounded-2xl shadow-2xl flex flex-col max-h-[85vh] overflow-hidden transition-all duration-300">
         
@@ -63,7 +90,12 @@ export function ProjectModal({ projeto, onClose, lang }: ProjectModalProps) {
           
           {/* Carrossel de Imagens */}
           {projeto.imagens && projeto.imagens.length > 0 && (
-            <div className="relative w-full aspect-video rounded-xl overflow-hidden border border-zinc-200 dark:border-zinc-800 bg-zinc-100 dark:bg-zinc-950 group/carousel transition-colors">
+            <div 
+              onTouchStart={handleTouchStart}
+              onTouchMove={handleTouchMove}
+              onTouchEnd={handleTouchEnd}
+              className="relative w-full aspect-video rounded-xl overflow-hidden border border-zinc-200 dark:border-zinc-800 bg-zinc-100 dark:bg-zinc-950 group/carousel transition-colors select-none touch-pan-y"
+            >
               {/* Imagem de Fundo Borrada (Ambient Effect) */}
               {/* eslint-disable-next-line @next/next/no-img-element */}
               <img 
@@ -87,7 +119,7 @@ export function ProjectModal({ projeto, onClose, lang }: ProjectModalProps) {
                       e.stopPropagation();
                       setImagemAtiva((prev) => (prev === 0 ? projeto.imagens!.length - 1 : prev - 1));
                     }}
-                    className="absolute z-20 left-3 top-1/2 -translate-y-1/2 p-1.5 rounded-full bg-white/90 dark:bg-zinc-950/80 border border-zinc-200 dark:border-zinc-800 text-zinc-600 dark:text-zinc-400 hover:text-zinc-900 dark:hover:text-zinc-100 hover:bg-zinc-50 dark:hover:bg-zinc-900 transition-all opacity-0 group-hover/carousel:opacity-100 cursor-pointer"
+                    className="absolute z-20 left-3 top-1/2 -translate-y-1/2 p-1.5 rounded-full bg-white/90 dark:bg-zinc-950/80 border border-zinc-200 dark:border-zinc-800 text-zinc-600 dark:text-zinc-400 hover:text-zinc-900 dark:hover:text-zinc-100 hover:bg-zinc-50 dark:hover:bg-zinc-900 transition-all opacity-100 md:opacity-0 md:group-hover/carousel:opacity-100 cursor-pointer"
                   >
                     <ChevronLeft className="w-5 h-5" />
                   </button>
@@ -96,7 +128,7 @@ export function ProjectModal({ projeto, onClose, lang }: ProjectModalProps) {
                       e.stopPropagation();
                       setImagemAtiva((prev) => (prev === projeto.imagens!.length - 1 ? 0 : prev + 1));
                     }}
-                    className="absolute z-20 right-3 top-1/2 -translate-y-1/2 p-1.5 rounded-full bg-white/90 dark:bg-zinc-950/80 border border-zinc-200 dark:border-zinc-800 text-zinc-600 dark:text-zinc-400 hover:text-zinc-900 dark:hover:text-zinc-100 hover:bg-zinc-50 dark:hover:bg-zinc-900 transition-all opacity-0 group-hover/carousel:opacity-100 cursor-pointer"
+                    className="absolute z-20 right-3 top-1/2 -translate-y-1/2 p-1.5 rounded-full bg-white/90 dark:bg-zinc-950/80 border border-zinc-200 dark:border-zinc-800 text-zinc-600 dark:text-zinc-400 hover:text-zinc-900 dark:hover:text-zinc-100 hover:bg-zinc-50 dark:hover:bg-zinc-900 transition-all opacity-100 md:opacity-0 md:group-hover/carousel:opacity-100 cursor-pointer"
                   >
                     <ChevronRight className="w-5 h-5" />
                   </button>
