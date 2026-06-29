@@ -29,6 +29,8 @@ export interface Perfil {
   };
   educacao: string;
   orgSobre: string;
+  principiosEngenharia: string[];
+  objetivosOrg: string[];
   foco: {
     titulo: string;
     desc: string;
