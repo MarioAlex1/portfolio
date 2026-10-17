@@ -3,6 +3,8 @@ import { Server, Database, Container } from "lucide-react";
 import { Perfil } from "@/types/portfolio";
 
 export const MEU_PERFIL_PT: Perfil = {
+  // Adicione sua foto em public/imagens/mario.jpg para ativar o retrato do hero.
+  foto: "/imagens/mario.jpg",
   hexNome: "0x4D4152494F",
   nome: "Mário Alex",
   cargo: "Desenvolvedor Backend Júnior",
@@ -392,6 +394,7 @@ export const MEU_PERFIL_PT: Perfil = {
 };
 
 export const MEU_PERFIL_EN: Perfil = {
+  foto: "/imagens/mario.jpg",
   hexNome: "0x4D4152494F",
   nome: "Mário Alex",
   cargo: "Junior Backend Developer",

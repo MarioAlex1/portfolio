@@ -17,7 +17,7 @@ export function Header({ theme, toggleTheme, lang, toggleLang, onOpenRecruiterDo
 
   return (
     <header className="sticky top-0 z-40 backdrop-blur-md bg-white/80 dark:bg-zinc-950/80 border-b border-zinc-200 dark:border-zinc-800 transition-colors duration-300">
-      <div className="max-w-4xl mx-auto px-6 h-16 flex items-center justify-between">
+      <div className="max-w-6xl mx-auto px-5 sm:px-8 h-[4.5rem] flex items-center justify-between">
         {/* Brand */}
         <a href="#sobre" className="flex items-center gap-2 font-mono font-bold text-emerald-600 dark:text-emerald-400 hover:opacity-80 transition-all cursor-pointer">
           <Terminal className="w-5 h-5" />

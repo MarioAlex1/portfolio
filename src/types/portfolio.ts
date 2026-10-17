@@ -34,6 +34,7 @@ export interface Projeto {
 }
 
 export interface Perfil {
+  foto?: string;
   hexNome: string;
   nome: string;
   cargo: string;

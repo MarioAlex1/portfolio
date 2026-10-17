@@ -253,6 +253,7 @@ export function TerminalConsole({ perfil, lang, onSelectProject }: TerminalConso
   const [currentDir, setCurrentDir] = useState<"~" | "~/projects">("~");
   const [customFiles, setCustomFiles] = useState<Record<string, VirtualItem>>({});
   const terminalBottomRef = useRef<HTMLDivElement>(null);
+  const consoleBodyRef = useRef<HTMLDivElement>(null);
   const inputRef = useRef<HTMLInputElement>(null);
 
   // Combined virtual root filesystem
@@ -1156,7 +1157,10 @@ overlay          50G   14G   34G  30% /var/lib/docker/overlay2`}
   };
 
   useEffect(() => {
-    terminalBottomRef.current?.scrollIntoView({ behavior: "smooth" });
+    // Only scroll inside the terminal console body when commands are run, NEVER scroll the browser window
+    if (history.length > 0 && consoleBodyRef.current) {
+      consoleBodyRef.current.scrollTop = consoleBodyRef.current.scrollHeight;
+    }
   }, [history]);
 
   // Tab auto-completion

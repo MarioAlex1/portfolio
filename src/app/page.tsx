@@ -91,7 +91,7 @@ export default function Home() {
         onOpenRecruiterDossier={() => setRecruiterDossierOpen(true)}
       />
 
-      <main className="max-w-4xl mx-auto px-6 py-12 space-y-24">
+      <main className="max-w-6xl mx-auto px-5 sm:px-8 py-10 sm:py-16 space-y-28">
         {/* HERO SECTION */}
         <Hero 
           perfil={perfil} 
