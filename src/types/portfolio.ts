@@ -1,24 +1,44 @@
 import { ReactNode } from "react";
 
-export interface Skill {
-  nome: string;
-  icone: ReactNode;
+export type CategoriaProjeto = "all" | "mariosystems" | "production" | "mobile";
+
+export interface ArquiteturaEtapa {
+  fase: string;
+  componente: string;
+  descricao: string;
+  badge?: string;
+}
+
+export interface MetricaProjeto {
+  label: string;
+  valor: string;
 }
 
 export interface Projeto {
+  id: string;
   titulo: string;
+  categoria: CategoriaProjeto;
+  categoriaNome: string;
   descricao: string;
+  desafio?: string;
+  solucaoArquitetural?: string;
+  destaquesTecnicos?: string[];
   tags: string[];
   github: string;
   status: string;
   features?: string[];
   imagens?: string[];
+  fluxoArquitetural?: ArquiteturaEtapa[];
+  metricas?: MetricaProjeto[];
+  demoUrl?: string;
 }
 
 export interface Perfil {
   hexNome: string;
   nome: string;
   cargo: string;
+  subtitulo: string;
+  disponibilidade: string;
   localizacao: string;
   sobre: string;
   links: {
@@ -29,7 +49,11 @@ export interface Perfil {
   };
   educacao: string;
   orgSobre: string;
-  principiosEngenharia: string[];
+  principiosEngenharia: {
+    titulo: string;
+    descricao: string;
+    tag: string;
+  }[];
   objetivosOrg: string[];
   foco: {
     titulo: string;
@@ -38,6 +62,7 @@ export interface Perfil {
   }[];
   categoriasSkills: {
     titulo: string;
+    descricao?: string;
     competencias: string[];
   }[];
   emAprendizado: string[];
