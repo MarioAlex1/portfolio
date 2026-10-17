@@ -88,8 +88,8 @@ export function ProjectModal({ projeto, onClose, lang }: ProjectModalProps) {
         onClick={(e) => e.stopPropagation()}
       >
         {/* Header */}
-        <div className="px-6 py-4.5 border-b border-zinc-200 dark:border-zinc-800 flex items-center justify-between bg-zinc-50/80 dark:bg-zinc-950/70 transition-colors">
-          <div className="space-y-1">
+        <div className="px-4 sm:px-6 py-4 sm:py-4.5 border-b border-zinc-200 dark:border-zinc-800 flex items-center justify-between gap-3 bg-zinc-50/80 dark:bg-zinc-950/70 transition-colors">
+          <div className="space-y-1 min-w-0">
             <div className="flex items-center gap-2">
               <span className="text-[10px] font-mono uppercase tracking-widest text-emerald-600 dark:text-emerald-400 font-bold">
                 {"// " + TRANSLATIONS[lang].systemSpec}
@@ -98,7 +98,7 @@ export function ProjectModal({ projeto, onClose, lang }: ProjectModalProps) {
                 {projeto.categoriaNome}
               </span>
             </div>
-            <h3 className="text-xl sm:text-2xl font-bold tracking-tight text-zinc-900 dark:text-zinc-100">
+            <h3 className="text-lg sm:text-2xl font-bold tracking-tight text-zinc-900 dark:text-zinc-100 break-words">
               {projeto.titulo}
             </h3>
           </div>
@@ -112,7 +112,7 @@ export function ProjectModal({ projeto, onClose, lang }: ProjectModalProps) {
         </div>
 
         {/* Scrollable Content */}
-        <div className="p-6 overflow-y-auto space-y-6 font-sans">
+        <div className="p-4 sm:p-6 overflow-y-auto space-y-6 font-sans">
           
           {/* Engineering Metrics Bar */}
           {projeto.metricas && projeto.metricas.length > 0 && (
@@ -283,7 +283,7 @@ export function ProjectModal({ projeto, onClose, lang }: ProjectModalProps) {
         </div>
 
         {/* Modal Footer with Actions */}
-        <div className="px-6 py-4 border-t border-zinc-200 dark:border-zinc-800 bg-zinc-50/70 dark:bg-zinc-950/60 flex flex-wrap items-center justify-between gap-3">
+        <div className="px-4 sm:px-6 py-4 border-t border-zinc-200 dark:border-zinc-800 bg-zinc-50/70 dark:bg-zinc-950/60 flex flex-wrap items-center justify-between gap-3">
           <span className="text-xs font-mono text-zinc-500">
             {TRANSLATIONS[lang].status}: <span className="text-zinc-700 dark:text-zinc-300 font-semibold">{projeto.status}</span>
           </span>
