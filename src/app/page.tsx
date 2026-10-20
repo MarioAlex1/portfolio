@@ -40,6 +40,7 @@ export default function Home() {
     requestAnimationFrame(() => {
       setTheme(initialTheme);
       setLang(initialLang);
+      document.documentElement.lang = initialLang === "pt" ? "pt-BR" : "en";
       setMounted(true);
     });
   }, []);
@@ -57,6 +58,7 @@ export default function Home() {
 
   useEffect(() => {
     if (!mounted) return;
+    document.documentElement.lang = lang === "pt" ? "pt-BR" : "en";
     localStorage.setItem("lang", lang);
   }, [lang, mounted]);
 
@@ -116,15 +118,15 @@ export default function Home() {
                   className="p-3.5 rounded-xl bg-white dark:bg-zinc-900/30 border border-zinc-200 dark:border-zinc-800/80 space-y-1 hover:border-zinc-300 dark:hover:border-zinc-700 transition-colors"
                 >
                   <div className="flex items-center justify-between">
-                    <span className="text-xs font-mono font-bold text-zinc-900 dark:text-zinc-100 flex items-center gap-2">
+                    <span className="text-sm font-mono font-bold text-zinc-900 dark:text-zinc-100 flex items-center gap-2">
                       <span className="w-1.5 h-1.5 rounded-full bg-emerald-500" />
                       {principio.titulo}
                     </span>
-                    <span className="text-[10px] font-mono px-2 py-0.5 rounded bg-zinc-100 dark:bg-zinc-800 text-zinc-500">
+                    <span className="text-xs font-mono px-2 py-0.5 rounded bg-zinc-100 dark:bg-zinc-800 text-zinc-500">
                       {principio.tag}
                     </span>
                   </div>
-                  <p className="text-[11px] text-zinc-600 dark:text-zinc-400 leading-relaxed font-sans pl-3.5">
+                  <p className="text-sm text-zinc-600 dark:text-zinc-400 leading-relaxed font-sans pl-3.5">
                     {principio.descricao}
                   </p>
                 </div>
@@ -139,7 +141,7 @@ export default function Home() {
             </h4>
             <div className="space-y-3">
               {perfil.objetivosOrg.map((objetivo, idx) => (
-                <div key={idx} className="flex items-start gap-3 text-xs sm:text-sm text-zinc-650 dark:text-zinc-400 bg-white dark:bg-zinc-900/20 border border-zinc-200 dark:border-zinc-800/70 p-3.5 rounded-xl">
+                <div key={idx} className="flex items-start gap-3 text-sm sm:text-base text-zinc-650 dark:text-zinc-400 bg-white dark:bg-zinc-900/20 border border-zinc-200 dark:border-zinc-800/70 p-4 rounded-xl">
                   <CheckCircle2 className="w-4 h-4 text-purple-500 shrink-0 mt-0.5" />
                   <p className="leading-relaxed">{objetivo}</p>
                 </div>
@@ -254,10 +256,10 @@ export default function Home() {
       {/* FOOTER */}
       <footer className="border-t border-zinc-200 dark:border-zinc-800/80 bg-zinc-100/50 dark:bg-zinc-950/40 py-10 text-center space-y-3">
         <div className="text-[11px] font-mono text-zinc-500 dark:text-zinc-400 max-w-2xl mx-auto px-4 select-none">
-          <span className="text-emerald-600 dark:text-emerald-400 font-semibold">[MarioSystems-DEV]</span> : Ambientes locais Docker ativos — Foco: PostgreSQL, Multi-Tenancy & APIs REST.
+          <span className="text-emerald-600 dark:text-emerald-400 font-semibold">[MarioSystems-DEV]</span> : {TRANSLATIONS[lang].footerStatus}
         </div>
         <div className="text-xs text-zinc-500 font-mono">
-          © {new Date().getFullYear()} {perfil.nome} — Built with Next.js & Tailwind CSS
+          © {new Date().getFullYear()} {perfil.nome} — {TRANSLATIONS[lang].builtWith}
         </div>
       </footer>
 

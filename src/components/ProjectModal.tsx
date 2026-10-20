@@ -105,7 +105,7 @@ export function ProjectModal({ projeto, onClose, lang }: ProjectModalProps) {
           <button 
             onClick={onClose} 
             className="p-2 text-zinc-400 hover:text-zinc-700 dark:hover:text-zinc-200 hover:bg-zinc-100 dark:hover:bg-zinc-800 rounded-xl transition-all cursor-pointer"
-            aria-label="Close modal"
+            aria-label={TRANSLATIONS[lang].closeModal}
           >
             <X className="w-5 h-5" />
           </button>

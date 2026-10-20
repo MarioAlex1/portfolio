@@ -56,7 +56,7 @@ export function Header({ theme, toggleTheme, lang, toggleLang, onOpenRecruiterDo
             <button 
               onClick={toggleLang}
               className="px-2.5 py-1.5 bg-zinc-100 hover:bg-zinc-200 dark:bg-zinc-900 dark:hover:bg-zinc-800 border border-zinc-200 dark:border-zinc-800 rounded-xl text-xs font-mono font-bold text-zinc-600 dark:text-zinc-400 hover:text-zinc-900 dark:hover:text-zinc-100 transition-all cursor-pointer"
-              aria-label="Mudar idioma"
+              aria-label={lang === "pt" ? "Mudar idioma para inglês" : "Switch language to Portuguese"}
             >
               {lang === "pt" ? "EN" : "PT"}
             </button>
@@ -65,7 +65,7 @@ export function Header({ theme, toggleTheme, lang, toggleLang, onOpenRecruiterDo
             <button 
               onClick={toggleTheme}
               className="p-2 bg-zinc-100 hover:bg-zinc-200 dark:bg-zinc-900 dark:hover:bg-zinc-800 border border-zinc-200 dark:border-zinc-800 rounded-xl text-zinc-600 dark:text-zinc-400 hover:text-zinc-900 dark:hover:text-zinc-100 transition-all cursor-pointer"
-              aria-label="Alternar tema"
+              aria-label={lang === "pt" ? "Alternar tema" : "Toggle theme"}
             >
               {theme === "dark" ? <Sun className="w-4 h-4" /> : <Moon className="w-4 h-4" />}
             </button>
@@ -79,7 +79,7 @@ export function Header({ theme, toggleTheme, lang, toggleLang, onOpenRecruiterDo
             className="px-2.5 py-1 bg-emerald-500/10 text-emerald-700 dark:text-emerald-400 border border-emerald-500/30 rounded-lg text-xs font-mono font-bold flex items-center gap-1 transition-all cursor-pointer"
           >
             <Zap className="w-3 h-3 fill-current" />
-            <span>Recruiter</span>
+            <span>{TRANSLATIONS[lang].recruiterButton}</span>
           </button>
 
           <button

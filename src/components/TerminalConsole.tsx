@@ -1,7 +1,7 @@
 "use client";
 
 import { useState, useRef, useEffect, useMemo } from "react";
-import { Terminal, Send, Trash2, Sparkles, Folder, FileText, CheckCircle2 } from "lucide-react";
+import { Terminal, Send, Trash2, Sparkles, Folder, FileText, CheckCircle2, ShieldAlert } from "lucide-react";
 import { Perfil } from "@/types/portfolio";
 import { TRANSLATIONS } from "@/data/translations";
 
@@ -483,9 +483,9 @@ export function TerminalConsole({ perfil, lang, onSelectProject }: TerminalConso
         } else if (flags.some(f => f.includes("rf")) && (target === "/" || target === "/*" || target === "*")) {
           resultNode = (
             <div className="p-3 bg-red-950/60 border border-red-500/50 rounded-lg font-mono text-xs space-y-1 text-red-200">
-              <p className="font-bold text-red-400">⚠️ [MarioSystems Cloud Defense Active]</p>
+              <p className="font-bold text-red-400 flex items-center gap-1.5"><ShieldAlert className="w-3.5 h-3.5" /> [MarioSystems Cloud Defense Active]</p>
               <p>rm -rf /: Permissão negada. Arquivos protegidos por snapshots e isolamento físico!</p>
-              <p className="text-zinc-400 text-[11px]">Nice try! O portfólio continua 100% íntegro e operacional. 😉</p>
+              <p className="text-zinc-400 text-[11px]">Nice try! O portfólio continua 100% íntegro e operacional.</p>
             </div>
           );
         } else if (customFiles[target]) {
@@ -1279,7 +1279,7 @@ overlay          50G   14G   34G  30% /var/lib/docker/overlay2`}
             <button 
               onClick={() => setHistory([])}
               className="text-zinc-500 hover:text-zinc-300 flex items-center gap-1 text-[11px] transition-colors cursor-pointer"
-              title="Clear terminal"
+              title={lang === "pt" ? "Limpar terminal" : "Clear terminal"}
             >
               <Trash2 className="w-3.5 h-3.5" /> clear
             </button>
@@ -1354,7 +1354,7 @@ overlay          50G   14G   34G  30% /var/lib/docker/overlay2`}
           <button
             onClick={() => handleCommand(inputVal)}
             className="p-1.5 text-zinc-400 hover:text-emerald-400 transition-colors cursor-pointer"
-            aria-label="Send command"
+            aria-label={lang === "pt" ? "Enviar comando" : "Send command"}
           >
             <Send className="w-3.5 h-3.5" />
           </button>

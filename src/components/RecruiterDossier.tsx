@@ -59,7 +59,7 @@ export function RecruiterDossier({ perfil, isOpen, onClose, lang }: RecruiterDos
           <button 
             onClick={onClose} 
             className="p-2 text-zinc-400 hover:text-zinc-700 dark:hover:text-zinc-200 hover:bg-zinc-100 dark:hover:bg-zinc-800 rounded-xl transition-all cursor-pointer shrink-0"
-            aria-label="Close modal"
+            aria-label={TRANSLATIONS[lang].closeModal}
           >
             <X className="w-5 h-5" />
           </button>
@@ -112,15 +112,15 @@ export function RecruiterDossier({ perfil, isOpen, onClose, lang }: RecruiterDos
               <ul className="space-y-1.5 text-xs text-zinc-700 dark:text-zinc-300 font-mono">
                 <li className="flex items-center gap-2">
                   <span className="w-1.5 h-1.5 rounded-full bg-emerald-500 shrink-0" />
-                  <span>Desenvolvedor Backend Júnior</span>
+                  <span>{TRANSLATIONS[lang].targetRoleOne}</span>
                 </li>
                 <li className="flex items-center gap-2">
                   <span className="w-1.5 h-1.5 rounded-full bg-emerald-500 shrink-0" />
-                  <span>Desenvolvedor Python / Django Júnior</span>
+                  <span>{TRANSLATIONS[lang].targetRoleTwo}</span>
                 </li>
                 <li className="flex items-center gap-2">
                   <span className="w-1.5 h-1.5 rounded-full bg-emerald-500 shrink-0" />
-                  <span>Desenvolvedor Node.js / TypeScript Júnior</span>
+                  <span>{TRANSLATIONS[lang].targetRoleThree}</span>
                 </li>
               </ul>
             </div>
@@ -128,7 +128,7 @@ export function RecruiterDossier({ perfil, isOpen, onClose, lang }: RecruiterDos
             {/* Core Stack */}
             <div className="p-4 rounded-xl bg-zinc-50 dark:bg-zinc-950/30 border border-zinc-200 dark:border-zinc-800/80 space-y-2">
               <h4 className="text-xs font-mono font-bold uppercase tracking-wider text-zinc-500 dark:text-zinc-400 flex items-center gap-1.5">
-                <Server className="w-3.5 h-3.5 text-emerald-500" /> Stack Principal
+                <Server className="w-3.5 h-3.5 text-emerald-500" /> {TRANSLATIONS[lang].principalStack}
               </h4>
               <div className="flex flex-wrap gap-1.5">
                 {["Python", "Django", "Django REST", "TypeScript", "Node.js", "PostgreSQL", "Multi-Tenant (DB-per-Tenant)", "Docker", "Pytest", "Git"].map((st) => (
@@ -148,37 +148,37 @@ export function RecruiterDossier({ perfil, isOpen, onClose, lang }: RecruiterDos
             <div className="grid grid-cols-1 gap-2.5 text-xs text-zinc-650 dark:text-zinc-300">
               <div className="p-3 rounded-xl bg-zinc-50 dark:bg-zinc-950/40 border border-zinc-200 dark:border-zinc-800/80 space-y-1">
                 <div className="font-bold font-mono text-zinc-900 dark:text-zinc-100 flex items-center gap-1.5">
-                  <span className="text-emerald-500 font-mono">01.</span> Experiência Prática em Projetos Reais
+                  <span className="text-emerald-500 font-mono">01.</span> {TRANSLATIONS[lang].dossierStrength1Title}
                 </div>
                 <p className="text-zinc-600 dark:text-zinc-400 leading-relaxed">
-                  Participou do desenvolvimento colaborativo em projetos concretos: arquitetura multi-tenant no Point do Barbeiro e migração de sistema acoplado para API independente em Django REST no projeto Leite do Futuro.
+                  {TRANSLATIONS[lang].dossierStrength1Text}
                 </p>
               </div>
 
               <div className="p-3 rounded-xl bg-zinc-50 dark:bg-zinc-950/40 border border-zinc-200 dark:border-zinc-800/80 space-y-1">
                 <div className="font-bold font-mono text-zinc-900 dark:text-zinc-100 flex items-center gap-1.5">
-                  <span className="text-emerald-500 font-mono">02.</span> Contato com Problemas Complexos (Database-per-Tenant)
+                  <span className="text-emerald-500 font-mono">02.</span> {TRANSLATIONS[lang].dossierStrength2Title}
                 </div>
                 <p className="text-zinc-600 dark:text-zinc-400 leading-relaxed">
-                  Experiência na implementação de isolamento físico de dados por barbearia com múltiplos bancos PostgreSQL, roteamento dinâmico via Django Database Router e provisionamento automatizado de novas bases.
+                  {TRANSLATIONS[lang].dossierStrength2Text}
                 </p>
               </div>
 
               <div className="p-3 rounded-xl bg-zinc-50 dark:bg-zinc-950/40 border border-zinc-200 dark:border-zinc-800/80 space-y-1">
                 <div className="font-bold font-mono text-zinc-900 dark:text-zinc-100 flex items-center gap-1.5">
-                  <span className="text-emerald-500 font-mono">03.</span> Foco Ativo em Fundamentos: SQL & PostgreSQL
+                  <span className="text-emerald-500 font-mono">03.</span> {TRANSLATIONS[lang].dossierStrength3Title}
                 </div>
                 <p className="text-zinc-600 dark:text-zinc-400 leading-relaxed">
-                  Prioridade número um estabelecida: dominar consultas SQL puras, modelagem relacional, constraints, transações atômicas e planos de execução (EXPLAIN) para além do uso padrão de ORMs.
+                  {TRANSLATIONS[lang].dossierStrength3Text}
                 </p>
               </div>
 
               <div className="p-3 rounded-xl bg-zinc-50 dark:bg-zinc-950/40 border border-zinc-200 dark:border-zinc-800/80 space-y-1">
                 <div className="font-bold font-mono text-zinc-900 dark:text-zinc-100 flex items-center gap-1.5">
-                  <span className="text-emerald-500 font-mono">04.</span> Autonomia, Testes & Ambientes Docker
+                  <span className="text-emerald-500 font-mono">04.</span> {TRANSLATIONS[lang].dossierStrength4Title}
                 </div>
                 <p className="text-zinc-600 dark:text-zinc-400 leading-relaxed">
-                  Prática na criação de testes unitários e de integração com Pytest e Vitest, orquestração de bancos e serviços com Docker Compose e busca contínua por autonomia de ponta a ponta na resolução de problemas.
+                  {TRANSLATIONS[lang].dossierStrength4Text}
                 </p>
               </div>
             </div>
@@ -195,7 +195,7 @@ export function RecruiterDossier({ perfil, isOpen, onClose, lang }: RecruiterDos
               href={`mailto:${perfil.links.email}`}
               className="px-4 py-2 bg-emerald-600 hover:bg-emerald-500 text-white font-mono text-xs font-bold rounded-xl flex items-center gap-1.5 transition-all shadow-sm shrink-0"
             >
-              <Mail className="w-3.5 h-3.5" /> Enviar Mensagem
+              <Mail className="w-3.5 h-3.5" /> {TRANSLATIONS[lang].sendMessage}
             </a>
           </div>
         </div>
