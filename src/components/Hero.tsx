@@ -20,7 +20,7 @@ export function Hero({ perfil, lang, onOpenRecruiterDossier }: HeroProps) {
           <span className="eyebrow eyebrow-muted">{perfil.localizacao}</span>
         </div>
         <p className="hero-kicker">{perfil.hexNome} <span>·</span> {TRANSLATIONS[lang].backendSystems}</p>
-        <h1 className="hero-title">Construo sistemas que<br /><em>fazem sentido.</em></h1>
+        <h1 className="hero-title">{TRANSLATIONS[lang].heroTitle}<br /><em>{TRANSLATIONS[lang].heroTitleAccent}</em></h1>
         <p className="hero-lede">{perfil.sobre}</p>
         <div className="flex flex-wrap items-center gap-3 mt-8">
           <button onClick={onOpenRecruiterDossier} className="button-primary"><Sparkles className="w-4 h-4" /> {TRANSLATIONS[lang].exploreWork}</button>
