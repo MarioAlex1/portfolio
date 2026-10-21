@@ -15,7 +15,8 @@ import {
   Target, 
   CheckCircle2, 
   Wrench, 
-  Search 
+  Search,
+  ArrowUp
 } from "lucide-react";
 import { Projeto, CategoriaProjeto } from "@/types/portfolio";
 
@@ -27,6 +28,7 @@ export default function Home() {
   const [theme, setTheme] = useState<"light" | "dark">("dark");
   const [lang, setLang] = useState<"pt" | "en">("pt");
   const [mounted, setMounted] = useState(false);
+  const [showBackToTop, setShowBackToTop] = useState(false);
 
   useEffect(() => {
     const savedTheme = localStorage.getItem("theme") as "light" | "dark" | null;
@@ -61,6 +63,15 @@ export default function Home() {
     document.documentElement.lang = lang === "pt" ? "pt-BR" : "en";
     localStorage.setItem("lang", lang);
   }, [lang, mounted]);
+
+  useEffect(() => {
+    const handleScroll = () => setShowBackToTop(window.scrollY > 500);
+
+    window.addEventListener("scroll", handleScroll, { passive: true });
+    handleScroll();
+
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
 
   const toggleTheme = () => {
     setTheme((prev) => (prev === "dark" ? "light" : "dark"));
@@ -278,6 +289,16 @@ export default function Home() {
         onClose={() => setRecruiterDossierOpen(false)}
         lang={lang}
       />
+
+      <button
+        type="button"
+        onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
+        aria-label={TRANSLATIONS[lang].backToTop}
+        title={TRANSLATIONS[lang].backToTop}
+        className={`fixed bottom-5 right-5 z-30 inline-flex h-11 w-11 items-center justify-center rounded-full border border-emerald-500/30 bg-white/90 text-emerald-700 shadow-lg backdrop-blur transition-all dark:bg-zinc-900/90 dark:text-emerald-400 sm:bottom-7 sm:right-7 ${showBackToTop ? "translate-y-0 opacity-100" : "pointer-events-none translate-y-3 opacity-0"}`}
+      >
+        <ArrowUp className="h-5 w-5" aria-hidden="true" />
+      </button>
     </div>
   );
 }
